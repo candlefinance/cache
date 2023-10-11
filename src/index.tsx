@@ -6,8 +6,8 @@ const LINKING_ERROR =
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo Go\n';
 
-const Cache = NativeModules.Cache
-  ? NativeModules.Cache
+const Cache = NativeModules.KitCacheManager
+  ? NativeModules.KitCacheManager
   : new Proxy(
       {},
       {
@@ -19,4 +19,20 @@ const Cache = NativeModules.Cache
 
 export function multiply(a: number, b: number): Promise<number> {
   return Cache.multiply(a, b);
+}
+
+export function write(key: string, value: string): Promise<boolean> {
+  return Cache.write(key, value);
+}
+
+export function read(key: string): Promise<string> {
+  return Cache.read(key);
+}
+
+export function remove(key: string): Promise<boolean> {
+  return Cache.delete(key);
+}
+
+export function clear(): Promise<boolean> {
+  return Cache.clear();
 }

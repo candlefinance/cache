@@ -1,18 +1,51 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from '@candlefinance/cache';
+import { StyleSheet, View, Text, Pressable } from 'react-native';
+import { clear, read, remove, write } from '@candlefinance/cache';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
+  const [cacheValue, setCacheValue] = React.useState<string>('yoo');
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <View style={{ height: 30 }} />
+      <Text>{cacheValue}</Text>
+      <View style={{ height: 30 }} />
+      <Pressable
+        onPress={async () => {
+          const v = await write('key', 'Hello World');
+          console.log(v);
+        }}
+      >
+        <Text>Write</Text>
+      </Pressable>
+      <View style={{ height: 30 }} />
+      <Pressable
+        onPress={async () => {
+          const value = await read('key');
+          setCacheValue(value);
+        }}
+      >
+        <Text>Read</Text>
+      </Pressable>
+      <View style={{ height: 30 }} />
+      <Pressable
+        onPress={async () => {
+          const v = await remove('key');
+          console.log('removed', v);
+        }}
+      >
+        <Text>Remove</Text>
+      </Pressable>
+      <View style={{ height: 30 }} />
+      <Pressable
+        onPress={async () => {
+          const v = await clear();
+          console.log('clear', v);
+        }}
+      >
+        <Text>clear</Text>
+      </Pressable>
     </View>
   );
 }
