@@ -14,7 +14,7 @@
 <br/>
 
 <h1 align="center">
-   Sqlite key/value store for React Native 
+   Sqlite offline store for React Native 
 </h1>
 
 <br/>
@@ -32,7 +32,7 @@ yarn add @candlefinance/cache
 ## Usage
 
 ```js
-const result = await write('key', 'Value');
+const result = await write('key', 'value');
 
 const result = await read('key');
 
