@@ -1,21 +1,44 @@
-# @candlefinance/cache
+<div align="center">
+</div>
 
-Fast cache for offline mode with Sqlite
+<br/>
+
+<div align="center">
+  <img alt="npm downloads" src="https://img.shields.io/npm/dw/@candlefinance/@candlefinance/cache?logo=npm&label=NPM%20downloads&cacheSeconds=3600"/>
+  <a alt="discord users online" href="https://discord.gg/qnAgjxhg6n" 
+  target="_blank"
+  rel="noopener noreferrer">
+    <img alt="discord users online" src="https://img.shields.io/discord/986610142768406548?label=Discord&logo=discord&logoColor=white&cacheSeconds=3600"/>
+</div>
+
+<br/>
+
+<h1 align="center">
+   Sqlite key/value store for React Native 
+</h1>
+
+<br/>
+
+Using [Room](https://developer.android.com/training/data-storage/room) for Android and [GRDB.swift](https://github.com/groue/GRDB.swift) for iOS, this library provides a simple interface to store data in a key-value format.
 
 ## Installation
 
+Requires `iOS 15+` in Podfile and `compileSdkVersion = 34` or higher in `android/app/build.gradle`.
+
 ```sh
-npm install @candlefinance/cache
+yarn add @candlefinance/cache
 ```
 
 ## Usage
 
 ```js
-import { multiply } from '@candlefinance/cache';
+const result = await write('key', 'Value');
 
-// ...
+const result = await read('key');
 
-const result = await multiply(3, 7);
+const result = await remove('key');
+
+const result = await clear();
 ```
 
 ## Contributing
@@ -25,7 +48,3 @@ See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the 
 ## License
 
 MIT
-
----
-
-Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)

@@ -17,10 +17,6 @@ const Cache = NativeModules.KitCacheManager
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return Cache.multiply(a, b);
-}
-
 export function write(key: string, value: string): Promise<boolean> {
   return Cache.write(key, value);
 }
