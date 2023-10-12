@@ -19,7 +19,7 @@
 
 <br/>
 
-Using [Room](https://developer.android.com/training/data-storage/room) for Android and [GRDB.swift](https://github.com/groue/GRDB.swift) for iOS, this library provides a simple interface to store data in a key-value format. The motivation for this library is to provide a simple interface to store data in a key-value format that is cross-platform and performant for offline storage.
+Using [Room](https://developer.android.com/training/data-storage/room) for Android and [GRDB.swift](https://github.com/groue/GRDB.swift) for iOS, this library provides a simple interface to store data in a key-value format. The motivation for this library is to provide a simple interface for storing large amounts of data for offline mode.
 
 ## Installation
 
