@@ -1,6 +1,6 @@
 {
   "name": "@candlefinance/cache",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Fast cache for offline mode with Sqlite",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
