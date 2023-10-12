@@ -46,11 +46,7 @@ class CacheModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaM
   @ReactMethod
   fun read(key: String, promise: Promise) {
     val payload = db.stringPayloadDao().get(key)
-    if (payload != null) {
-      promise.resolve(payload.value)
-    } else {
-      promise.reject("Error the value was not found: $key")
-    }
+    promise.resolve(payload?.value)
   }
 
   @ReactMethod
@@ -64,10 +60,8 @@ class CacheModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaM
     val payload = db.stringPayloadDao().get(key)
     if (payload != null) {
       db.stringPayloadDao().delete(payload)
-      promise.resolve(true)
-    } else {
-      promise.reject("Error the value was not found: $key")
     }
+    promise.resolve(true)
   }
 
   @ReactMethod

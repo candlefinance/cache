@@ -17,18 +17,19 @@ const Cache = NativeModules.KitCacheManager
       }
     );
 
-export function write(key: string, value: string): Promise<boolean> {
-  return Cache.write(key, value);
+export async function write(key: string, value: string) {
+  await Cache.write(key, value);
 }
 
-export function read(key: string): Promise<string> {
-  return Cache.read(key);
+export async function read(key: string): Promise<string | undefined> {
+  const result = await Cache.read(key);
+  return result === null ? undefined : result;
 }
 
-export function remove(key: string): Promise<boolean> {
-  return Cache.delete(key);
+export async function remove(key: string) {
+  await Cache.delete(key);
 }
 
-export function clear(): Promise<boolean> {
-  return Cache.clear();
+export async function clear() {
+  await Cache.clear();
 }

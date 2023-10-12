@@ -14,36 +14,41 @@
 <br/>
 
 <h1 align="center">
-   Sqlite offline store for React Native 
+   Sqlite key/value store for React Native 
 </h1>
 
 <br/>
 
-Using [Room](https://developer.android.com/training/data-storage/room) for Android and [GRDB.swift](https://github.com/groue/GRDB.swift) for iOS, this library provides a simple interface to store data in a key-value format.
+Using [Room](https://developer.android.com/training/data-storage/room) for Android and [GRDB.swift](https://github.com/groue/GRDB.swift) for iOS, this library provides a simple interface to store data in a key-value format. The motivation for this library is to provide a simple interface to store data in a key-value format that is cross-platform and performant for offline storage.
 
 ## Installation
 
-Requires `iOS 15+` in Podfile and `compileSdkVersion = 34` or higher in `android/app/build.gradle`.
+- Requires `iOS 15+` for iOS
+- `compileSdkVersion = 34` and `Zullu 17` or higher for Android
 
 ```sh
 yarn add @candlefinance/cache
 ```
 
+```sh
+npm i @candlefinance/cache
+```
+
 ## Usage
 
 ```js
-const result = await write('key', 'value');
+await write('key', 'value');
 
-const result = await read('key');
+const result = await read('key'); // can be undefined if key doesn't exist
 
-const result = await remove('key');
+await remove('key');
 
-const result = await clear();
+await clear();
 ```
 
 ## Contributing
 
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
+Join our [Discord](https://discord.gg/qnAgjxhg6n) and ask questions in the **#oss** channel.
 
 ## License
 

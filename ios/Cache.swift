@@ -42,7 +42,6 @@ final class KitCacheManager: NSObject {
     
     @objc(write:withValue:withResolver:withRejecter:)
     func write(id: String, value: String, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) {
-        print("Writing", id, value)
         do {
             try Self.dbQueue.write { db in
               try StringPayload(id: id, value: value).upsert(db)
