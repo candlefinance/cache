@@ -1,7 +1,7 @@
 PODS:
   - boost (1.76.0)
-  - candlefinance-cache (0.1.0):
-    - GRDB.swift
+  - candlefinance-cache (0.2.1):
+    - MemoryJar
     - RCT-Folly (= 2021.07.22.00)
     - React-Core
   - DoubleConversion (1.1.6)
@@ -15,9 +15,7 @@ PODS:
     - ReactCommon/turbomodule/core (= 0.72.5)
   - fmt (6.2.1)
   - glog (0.3.5)
-  - GRDB.swift (6.19.0):
-    - GRDB.swift/standard (= 6.19.0)
-  - GRDB.swift/standard (6.19.0)
+  - MemoryJar (0.1.0)
   - RCT-Folly (2021.07.22.00):
     - boost
     - DoubleConversion
@@ -442,7 +440,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - fmt
-    - GRDB.swift
+    - MemoryJar
     - SocketRocket
 
 EXTERNAL SOURCES:
@@ -527,13 +525,13 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost: 57d2868c099736d80fcd648bf211b4431e51a558
-  candlefinance-cache: 9d26aca0957400f41b8e3a83f3e187c7afe2daff
+  candlefinance-cache: d154bd1fa345b3b67e329aade0151e4a9c4e9fec
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   FBLazyVector: 71803c074f6325f10b5ec891c443b6bbabef0ca7
   FBReactNativeSpec: 448e08a759d29a96e15725ae532445bf4343567c
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 04b94705f318337d7ead9e6d17c019bd9b1f6b1b
-  GRDB.swift: c08bdefb31fdae93e1009a087a912b71529a1084
+  MemoryJar: 4e151a95ab4f6e84a5e9b16686186071377fad8f
   RCT-Folly: 424b8c9a7a0b9ab2886ffe9c3b041ef628fd4fb1
   RCTRequired: df81ab637d35fac9e6eb94611cfd20f0feb05455
   RCTTypeSafety: 4636e4a36c7c2df332bda6d59b19b41c443d4287

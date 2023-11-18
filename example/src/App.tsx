@@ -1,7 +1,38 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text, Pressable } from 'react-native';
+import { StyleSheet, View, Text, Pressable, Platform } from 'react-native';
 import { clear, read, remove, write } from '@candlefinance/cache';
+
+const benchmark = async () => {
+  const start = Date.now();
+  for (let i = 0; i < 10000; i++) {
+    await write(`key${i}`, `value${i}`);
+  }
+  const end = Date.now();
+  console.log('write', end - start);
+
+  const start2 = Date.now();
+  for (let i = 0; i < 10000; i++) {
+    await read(`key${i}`);
+  }
+  const end2 = Date.now();
+  console.log('read', end2 - start2);
+
+  const start3 = Date.now();
+  for (let i = 0; i < 10000; i++) {
+    await remove(`key${i}`);
+  }
+  const end3 = Date.now();
+  console.log('remove', end3 - start3);
+
+  console.log(
+    `Summary: It took ${end - start}ms to write 10000 items, ${
+      end2 - start2
+    }ms to read 10000 items, and ${
+      end3 - start3
+    }ms to remove 10000 items on Platform ${Platform.OS}`
+  );
+};
 
 export default function App() {
   const [cacheValue, setCacheValue] = React.useState<string>('yoo');
@@ -52,6 +83,14 @@ export default function App() {
         }}
       >
         <Text>clear</Text>
+      </Pressable>
+      <View style={{ height: 30 }} />
+      <Pressable
+        onPress={async () => {
+          await benchmark();
+        }}
+      >
+        <Text>benchmark</Text>
       </Pressable>
     </View>
   );
