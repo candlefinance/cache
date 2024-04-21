@@ -1,7 +1,6 @@
   package com.candlefinance.cache
 
   import android.util.Log
-  import com.diskcache.diskcache.wrapper.AndroidDiskCache
   import com.facebook.react.bridge.Promise
   import com.facebook.react.bridge.ReactApplicationContext
   import com.facebook.react.bridge.ReactContextBaseJavaModule
@@ -22,7 +21,7 @@
       db = AndroidDiskCache.Builder
         .folder(cacheDir)
         .appVersion(1)
-        .maxSize(1024 * 1024 * 100) // 100MB
+        .maxSize(1024 * 1024 * 200) // 100MB
         .dispatcher(Dispatchers.IO)
         .build()
     }
