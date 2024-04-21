@@ -14,7 +14,7 @@
 <br/>
 
 <h1 align="center">
-   Sqlite key/value store for React Native 
+   Cache store for React Native 
 </h1>
 
 <br/>
