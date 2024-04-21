@@ -1,73 +1,84 @@
-package com.candlefinance.cache
+  package com.candlefinance.cache
 
-import androidx.room.ColumnInfo
-import androidx.room.Dao
-import androidx.room.Database
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-import com.facebook.react.bridge.Callback
-import com.facebook.react.bridge.Promise
-import com.facebook.react.bridge.ReactApplicationContext
-import com.facebook.react.bridge.ReactContextBaseJavaModule
-import com.facebook.react.bridge.ReactMethod
+  import android.util.Log
+  import com.diskcache.diskcache.wrapper.AndroidDiskCache
+  import com.facebook.react.bridge.Promise
+  import com.facebook.react.bridge.ReactApplicationContext
+  import com.facebook.react.bridge.ReactContextBaseJavaModule
+  import com.facebook.react.bridge.ReactMethod
+  import kotlinx.coroutines.CoroutineScope
+  import kotlinx.coroutines.Dispatchers
+  import kotlinx.coroutines.launch
+  import kotlinx.coroutines.withContext
 
-@Entity
-data class Payload(
-  @PrimaryKey @ColumnInfo(name = "id") val id: String,
-  @ColumnInfo(name = "value") val value: String
-)
+  @Suppress("unused")
+  class CacheModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
+    override fun getName(): String = "KitCacheManager"
 
-@Dao
-interface StringPayloadDao {
-  @androidx.room.Query("SELECT * FROM Payload WHERE id = :id")
-  fun get(id: String): Payload?
-
-  @androidx.room.Insert(onConflict = androidx.room.OnConflictStrategy.REPLACE)
-  fun set(payload: Payload)
-
-  @androidx.room.Delete
-  fun delete(payload: Payload)
-}
-
-@Database(entities = [Payload::class], version = 1)
-abstract class CacheDatabase : androidx.room.RoomDatabase() {
-  abstract fun stringPayloadDao(): StringPayloadDao
-}
-
-@Suppress("unused")
-class CacheModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
-  override fun getName(): String = "KitCacheManager"
-
-  private val db = androidx.room.Room.databaseBuilder(
-    reactApplicationContext,
-    CacheDatabase::class.java, "cache"
-  ).build()
-
-  @ReactMethod
-  fun read(key: String, promise: Promise) {
-    val payload = db.stringPayloadDao().get(key)
-    promise.resolve(payload?.value)
-  }
-
-  @ReactMethod
-  fun write(key: String, value: String, promise: Promise) {
-    db.stringPayloadDao().set(Payload(key, value))
-    promise.resolve(true)
-  }
-
-  @ReactMethod
-  fun delete(key: String, promise: Promise) {
-    val payload = db.stringPayloadDao().get(key)
-    if (payload != null) {
-      db.stringPayloadDao().delete(payload)
+    private lateinit var db: AndroidDiskCache
+    private suspend fun initializeKache() = withContext(Dispatchers.IO) {
+      val cacheDir = reactApplicationContext.cacheDir
+      val packageName = reactApplicationContext.packageName
+      db = AndroidDiskCache.Builder
+        .folder(cacheDir)
+        .appVersion(1)
+        .maxSize(1024 * 1024 * 100) // 100MB
+        .dispatcher(Dispatchers.IO)
+        .build()
     }
-    promise.resolve(true)
-  }
 
-  @ReactMethod
-  fun clear(promise: Promise) {
-    db.clearAllTables()
-    promise.resolve(true)
-  }
+    init {
+      Log.d("CacheModule", "Initializing CacheModule")
+      CoroutineScope(Dispatchers.IO).launch {
+        initializeKache()
+      }
+    }
 
-}
+    @ReactMethod
+    fun read(key: String, promise: Promise) {
+        try {
+          val result = db.getFromFile(key) { file ->
+            val value = file.readText()
+            value
+          }
+          promise.resolve(result)
+        } catch (e: Exception) {
+          promise.reject("READ_FAILED", e)
+        }
+      }
+
+    @ReactMethod
+    fun write(key: String, value: String, promise: Promise) {
+        try {
+          db.putToFile(key) { file ->
+            file.writeText(value)
+            promise.resolve(true)
+          }
+        } catch (e: Exception) {
+          promise.reject("WRITE_FAILED", e)
+        }
+      }
+
+    @ReactMethod
+    fun delete(key: String, promise: Promise) {
+        try {
+          val result = db.remove(key)
+          promise.resolve(result)
+        } catch (e: Exception) {
+          Log.e("DELETE_FAILED", "Failed to delete from cache", e)
+          promise.reject("DELETE_FAILED", e)
+        }
+      }
+
+    @ReactMethod
+    fun clear(promise: Promise) {
+        try {
+          db.clear()
+          promise.resolve(true)
+        } catch (e: Exception) {
+          Log.e("CLEAR_FAILED", "Failed to clear cache", e)
+          promise.reject("CLEAR_FAILED", e)
+        }
+      }
+
+  }

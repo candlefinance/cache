@@ -1,6 +1,6 @@
 PODS:
   - boost (1.76.0)
-  - candlefinance-cache (0.2.1):
+  - candlefinance-cache (0.2.2):
     - MemoryJar
     - RCT-Folly (= 2021.07.22.00)
     - React-Core
@@ -525,7 +525,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost: 57d2868c099736d80fcd648bf211b4431e51a558
-  candlefinance-cache: d154bd1fa345b3b67e329aade0151e4a9c4e9fec
+  candlefinance-cache: 3fba5177bc2a2ee08dc4f0399f83b80a6ad3608f
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   FBLazyVector: 71803c074f6325f10b5ec891c443b6bbabef0ca7
   FBReactNativeSpec: 448e08a759d29a96e15725ae532445bf4343567c

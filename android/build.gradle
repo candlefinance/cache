@@ -90,17 +90,15 @@ repositories {
   google()
 }
 
-def kotlin_version = getExtOrDefault("kotlinVersion")
+def kotlin_version = '1.9.0'
 
 dependencies {
   // For < 0.71, this will be from the local maven repo
   // For > 0.71, this will be replaced by `com.facebook.react:react-android:$version` by react gradle plugin
   //noinspection GradleDynamicVersion
-  implementation "androidx.room:room-runtime:+"
-  annotationProcessor "androidx.room:room-compiler:+"
+  implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0'
+  implementation 'com.github.giovcorte:DiskCache:2.0'
 
-  // To use Kotlin annotation processing tool (kapt)
-  kapt "androidx.room:room-compiler:+"
   implementation "com.facebook.react:react-native:+"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }

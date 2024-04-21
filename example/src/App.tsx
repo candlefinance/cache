@@ -1,7 +1,13 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text, Pressable, Platform } from 'react-native';
 import { clear, read, remove, write } from '@candlefinance/cache';
+import {
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 const benchmark = async () => {
   const start = Date.now();
@@ -42,7 +48,7 @@ export default function App() {
       <View style={{ height: 30 }} />
       <Text>{cacheValue}</Text>
       <View style={{ height: 30 }} />
-      <Pressable
+      <TouchableOpacity
         onPress={async () => {
           console.log('write');
           const v = await write('key', 'Hello World');
@@ -50,9 +56,9 @@ export default function App() {
         }}
       >
         <Text>Write</Text>
-      </Pressable>
+      </TouchableOpacity>
       <View style={{ height: 30 }} />
-      <Pressable
+      <TouchableOpacity
         onPress={async () => {
           try {
             const value = await read('key');
@@ -64,9 +70,9 @@ export default function App() {
         }}
       >
         <Text>Read</Text>
-      </Pressable>
+      </TouchableOpacity>
       <View style={{ height: 30 }} />
-      <Pressable
+      <TouchableOpacity
         onPress={async () => {
           const v = await remove('key');
           console.log('remove', v);
@@ -74,24 +80,25 @@ export default function App() {
         }}
       >
         <Text>Remove</Text>
-      </Pressable>
+      </TouchableOpacity>
       <View style={{ height: 30 }} />
-      <Pressable
+      <TouchableOpacity
         onPress={async () => {
           const v = await clear();
           console.log('clear', v);
         }}
       >
         <Text>clear</Text>
-      </Pressable>
+      </TouchableOpacity>
       <View style={{ height: 30 }} />
-      <Pressable
+      <TouchableOpacity
         onPress={async () => {
+          console.log('benchmark');
           await benchmark();
         }}
       >
         <Text>benchmark</Text>
-      </Pressable>
+      </TouchableOpacity>
     </View>
   );
 }
