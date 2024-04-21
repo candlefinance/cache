@@ -19,7 +19,7 @@
 
 <br/>
 
-Using [Room](https://developer.android.com/training/data-storage/room) for Android and [GRDB.swift](https://github.com/groue/GRDB.swift) for iOS, this library provides a simple interface to store data in a key-value format for offline mode.
+Using DiskCache for Android and MemoryJar for iOS, this library provides a simple interface to store data in a key-value format for offline mode.
 
 ## Installation
 
