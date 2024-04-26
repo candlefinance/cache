@@ -27,9 +27,10 @@ end
 
 target 'CacheExample' do
   config = use_native_modules!
-
   # Flags change depending on the env values.
   flags = get_default_flags()
+
+  pod 'PINCache', :modular_headers => true
 
   use_react_native!(
     :path => config[:reactNativePath],

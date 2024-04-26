@@ -1,7 +1,7 @@
 PODS:
   - boost (1.76.0)
-  - candlefinance-cache (0.2.2):
-    - MemoryJar
+  - candlefinance-cache (0.3.1):
+    - PINCache
     - RCT-Folly (= 2021.07.22.00)
     - React-Core
   - DoubleConversion (1.1.6)
@@ -15,7 +15,14 @@ PODS:
     - ReactCommon/turbomodule/core (= 0.72.5)
   - fmt (6.2.1)
   - glog (0.3.5)
-  - MemoryJar (0.1.0)
+  - PINCache (3.0.3):
+    - PINCache/Arc-exception-safe (= 3.0.3)
+    - PINCache/Core (= 3.0.3)
+  - PINCache/Arc-exception-safe (3.0.3):
+    - PINCache/Core
+  - PINCache/Core (3.0.3):
+    - PINOperation (~> 1.2.1)
+  - PINOperation (1.2.2)
   - RCT-Folly (2021.07.22.00):
     - boost
     - DoubleConversion
@@ -402,6 +409,7 @@ DEPENDENCIES:
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/React/FBReactNativeSpec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
+  - PINCache
   - RCT-Folly (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
   - RCTTypeSafety (from `../node_modules/react-native/Libraries/TypeSafety`)
@@ -440,7 +448,8 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - fmt
-    - MemoryJar
+    - PINCache
+    - PINOperation
     - SocketRocket
 
 EXTERNAL SOURCES:
@@ -525,13 +534,14 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost: 57d2868c099736d80fcd648bf211b4431e51a558
-  candlefinance-cache: 3fba5177bc2a2ee08dc4f0399f83b80a6ad3608f
+  candlefinance-cache: 1be0064da6baabcea23b9d928bc87cbbc729f00f
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   FBLazyVector: 71803c074f6325f10b5ec891c443b6bbabef0ca7
   FBReactNativeSpec: 448e08a759d29a96e15725ae532445bf4343567c
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 04b94705f318337d7ead9e6d17c019bd9b1f6b1b
-  MemoryJar: 4e151a95ab4f6e84a5e9b16686186071377fad8f
+  PINCache: 7a8fc1a691173d21dbddbf86cd515de6efa55086
+  PINOperation: daa34d4aa1d8449089be7d405b9d974abc4724c6
   RCT-Folly: 424b8c9a7a0b9ab2886ffe9c3b041ef628fd4fb1
   RCTRequired: df81ab637d35fac9e6eb94611cfd20f0feb05455
   RCTTypeSafety: 4636e4a36c7c2df332bda6d59b19b41c443d4287
@@ -567,6 +577,6 @@ SPEC CHECKSUMS:
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Yoga: 86fed2e4d425ee4c6eab3813ba1791101ee153c6
 
-PODFILE CHECKSUM: b042939a4126610b65490f5293ac29e39d39500d
+PODFILE CHECKSUM: 2978050834ea11b0c4d563dcf828a133feaa5779
 
 COCOAPODS: 1.12.0

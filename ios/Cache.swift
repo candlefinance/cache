@@ -1,5 +1,5 @@
-import MemoryJar
 import Foundation
+import PINCache
 
 @objc(KitCacheManager)
 final class KitCacheManager: NSObject {
@@ -17,25 +17,25 @@ final class KitCacheManager: NSObject {
     
     @objc(write:withValue:withResolver:withRejecter:)
     func write(id: String, value: String, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) {
-        MemoryJar.shared.set(value: value, forKey: id)
+        PINCache.shared.setObject(value, forKey: id)
         resolve(true)
     }
     
     @objc(read:withResolver:withRejecter:)
     func read(id: String, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) {
-        let value = MemoryJar.shared.get(forKey: id, maxAge: TimeInterval.infinity)
+        let value = PINCache.shared.object(forKey: id)
         resolve(value)
     }
     
     @objc(delete:withResolver:withRejecter:)
     func delete(id: String, resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) {
-        MemoryJar.shared.removeObject(forKey: id)
+        PINCache.shared.removeObject(forKey: id)
         resolve(true)
     }
     
     @objc(clear:withRejecter:)
     func clear(resolve: RCTPromiseResolveBlock, reject: RCTPromiseRejectBlock) {
-        MemoryJar.shared.removeAllObjects()
+        PINCache.shared.removeAllObjects()
         resolve(true)
     }
     
