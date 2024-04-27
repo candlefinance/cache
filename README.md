@@ -19,7 +19,7 @@
 
 <br/>
 
-Using DiskCache for Android and MemoryJar for iOS, this library provides a simple interface to store data in a key-value format for offline mode.
+Using DiskCache for Android and PINCache for iOS, this library provides a simple interface to store data in a key-value format for offline mode.
 
 ## Installation
 
