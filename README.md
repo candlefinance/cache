@@ -4,7 +4,6 @@
    <a href="https://www.npmjs.com/package/@candlefinance%2Fcache">
   <img alt="npm downloads" src="https://img.shields.io/npm/dw/@candlefinance/cache?logo=npm&label=NPM%20downloads&cacheSeconds=3600"/>
    </a>
-  
   <a alt="discord users online" href="https://discord.gg/qnAgjxhg6n" 
   target="_blank"
   rel="noopener noreferrer">
