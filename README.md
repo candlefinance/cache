@@ -4,7 +4,13 @@
 <br/>
 
 <div align="center">
-  <img alt="npm downloads" src="https://img.shields.io/npm/dw/@candlefinance/@candlefinance/cache?logo=npm&label=NPM%20downloads&cacheSeconds=3600"/>
+<div align="center">
+  <img alt="npm downloads" src="https://img.shields.io/npm/dw/@candlefinance/cache?logo=npm&label=NPM%20downloads&cacheSeconds=3600"/>
+  <a alt="discord users online" href="https://discord.gg/qnAgjxhg6n" 
+  target="_blank"
+  rel="noopener noreferrer">
+    <img alt="discord users online" src="https://img.shields.io/discord/986610142768406548?label=Discord&logo=discord&logoColor=white&cacheSeconds=3600"/>
+</div>
   <a alt="discord users online" href="https://discord.gg/qnAgjxhg6n" 
   target="_blank"
   rel="noopener noreferrer">
