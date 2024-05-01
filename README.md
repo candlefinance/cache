@@ -18,9 +18,7 @@
 
 
 <div align="center">
-<img 
-  align="center"
-  width="692" alt="Screenshot 2024-04-30 at 11 44 02 PM" src="https://github.com/candlefinance/cache/assets/12258850/9b45566f-6afc-454a-9cca-448d2200d3a6">
+<img width="690" alt="Screenshot 2024-05-01 at 12 27 12 AM" src="https://github.com/candlefinance/cache/assets/12258850/78692b87-a1ea-4fff-bd1e-b08952563724">
 </div>
 <br/>
 
