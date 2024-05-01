@@ -16,9 +16,15 @@
    Cache store for React Native 
 </h1>
 
+
+<div align="center">
+<img 
+  align="center"
+  width="692" alt="Screenshot 2024-04-30 at 11 44 02 PM" src="https://github.com/candlefinance/cache/assets/12258850/9b45566f-6afc-454a-9cca-448d2200d3a6">
+</div>
 <br/>
 
-Using DiskCache for Android and PINCache for iOS, this library provides a simple interface to store data in a key-value format for offline mode.
+Using DiskCache for Android and non-deadlocking parallel PINCache for iOS, this library provides a simple interface to store data in a key-value format for offline mode.
 
 ## Installation
 
