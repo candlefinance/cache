@@ -22,7 +22,7 @@
 </div>
 <br/>
 
-Using DiskCache for Android and non-deadlocking parallel PINCache for iOS, this library provides a simple interface to store data in a key-value format for offline mode.
+Using DiskCache for Android and non-deadlocking parallel [PINCache](https://github.com/pinterest/PINCache) for iOS, this library provides a simple interface to store data in a key-value format for offline mode.
 
 ## Installation
 
