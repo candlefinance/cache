@@ -27,7 +27,6 @@ Using DiskCache for Android and non-deadlocking parallel PINCache for iOS, this 
 ## Installation
 
 - Requires `iOS 15+` for iOS
-- `compileSdkVersion = 34` and `Zullu 17` or higher for Android
 
 1. 
 ```sh
@@ -38,7 +37,7 @@ yarn add @candlefinance/cache
 npm i @candlefinance/cache
 ```
 
-2. Add to your Podfile
+2. Add to your target in your Podfile if you get an error
 ```ruby
 pod 'PINCache', :modular_headers => true
 ```
