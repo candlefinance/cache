@@ -21,7 +21,7 @@
       db = AndroidDiskCache.Builder
         .folder(cacheDir)
         .appVersion(1)
-        .maxSize(1024 * 1024 * 200) // 100MB
+        .maxSize(1024 * 1024 * 200) // 200MB
         .dispatcher(Dispatchers.IO)
         .build()
     }
