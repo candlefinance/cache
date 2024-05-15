@@ -1,6 +1,6 @@
 PODS:
   - boost (1.76.0)
-  - candlefinance-cache (0.3.1):
+  - candlefinance-cache (0.3.2):
     - PINCache
     - RCT-Folly (= 2021.07.22.00)
     - React-Core
@@ -277,8 +277,6 @@ PODS:
   - React-jsc (0.72.5):
     - React-jsc/Fabric (= 0.72.5)
     - React-jsi (= 0.72.5)
-  - React-jsc/Fabric (0.72.5):
-    - React-jsi (= 0.72.5)
   - React-jsi (0.72.5):
     - boost (= 1.76.0)
     - DoubleConversion
@@ -534,7 +532,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost: 57d2868c099736d80fcd648bf211b4431e51a558
-  candlefinance-cache: 1be0064da6baabcea23b9d928bc87cbbc729f00f
+  candlefinance-cache: 5a95afd06b4d55c9a00b370fffced475b469e608
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   FBLazyVector: 71803c074f6325f10b5ec891c443b6bbabef0ca7
   FBReactNativeSpec: 448e08a759d29a96e15725ae532445bf4343567c
@@ -577,6 +575,6 @@ SPEC CHECKSUMS:
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Yoga: 86fed2e4d425ee4c6eab3813ba1791101ee153c6
 
-PODFILE CHECKSUM: 2978050834ea11b0c4d563dcf828a133feaa5779
+PODFILE CHECKSUM: 8240754c24c60b9eb062f31249323bce32a16dcc
 
-COCOAPODS: 1.12.0
+COCOAPODS: 1.15.2
