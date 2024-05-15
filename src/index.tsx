@@ -33,3 +33,7 @@ export async function remove(key: string) {
 export async function clear() {
   await Cache.clear();
 }
+
+export const setItem = write;
+export const getItem = read;
+export const removeItem = remove;
