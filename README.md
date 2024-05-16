@@ -26,7 +26,7 @@ Using DiskCache for Android and non-deadlocking parallel [PINCache](https://gith
 
 ## Installation
 
-- Requires `iOS 15+` for iOS
+- Requires `iOS 12+` for iOS
 
 1. 
 ```sh
