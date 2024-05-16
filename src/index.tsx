@@ -34,6 +34,9 @@ export async function clear() {
   await Cache.clear();
 }
 
+
 export const setItem = write;
 export const getItem = read;
 export const removeItem = remove;
+
+export default { write, read, remove, clear };

@@ -44,7 +44,7 @@ pod 'PINCache', :modular_headers => true
 
 ## Usage
 
-Currently max size on iOS is 50MB and 100MB on Android. 
+Currently max size on iOS is 50MB and 200MB on Android. 
 
 ```js
 await write('key', 'value');
