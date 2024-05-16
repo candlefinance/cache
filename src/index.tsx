@@ -33,3 +33,5 @@ export async function remove(key: string) {
 export async function clear() {
   await Cache.clear();
 }
+
+export default { write, read, remove, clear };
